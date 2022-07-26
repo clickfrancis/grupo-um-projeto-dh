@@ -40,8 +40,8 @@ public abstract class Conta {
         this.status = status;
     }
 
-    abstract void debito();
+    abstract protected void debito();
 
-    abstract void credito ();
+    abstract public void credito ();
 
 }
