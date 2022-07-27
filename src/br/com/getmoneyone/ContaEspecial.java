@@ -3,14 +3,15 @@ package br.com.getmoneyone;
 public class ContaEspecial extends Conta {
 	
 	double limite;
+	char tipoMovimentacao;
+	char continuar;
 	double valorDebito;
 	double valorCredito;
 	double movimentacoes;
 	double saldo;
 
 	protected ContaEspecial(int numero, String cpf) {
-		super(numero, cpf);
-		
+		super(numero, cpf);	
 	}
 
 	protected void debito() {
@@ -26,14 +27,20 @@ public class ContaEspecial extends Conta {
 			
 		System.out.println("DEBITO " + valorDebito);
 		System.out.println("SALDO " + saldo);
-		System.out.println("MOVIMENTAÇÕES: " + movimentacoes);
 		} else {
 			System.out.println("LIMITE 10 MOVIMENTAÇOES");
 		}
 	}
 
 	public void credito() {
-		//TODO: LÓGICA CRÉDITO;
+		if (movimentacoes < 10) {
+			saldo = getSaldo();
+			saldo += valorCredito;
+			movimentacoes++;
+			setSaldo(saldo);
+			System.out.println("CREDITO " + valorCredito);
+			System.out.println("SALDO " + saldo);
+		}
 	}
 	
 	public void usarLimite() {
