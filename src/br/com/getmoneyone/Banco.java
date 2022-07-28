@@ -6,28 +6,26 @@ public class Banco {
 
     public static void main(String[] args) {
     	
-    	Scanner entrada = new Scanner(System.in);
     	
+    	Scanner entrada = new Scanner(System.in);
     	
     	ContaEspecial especial = new ContaEspecial(1234, "098765");
     	
-    	especial.limite = 1000;
-    	especial.setSaldo(1000.0);
+    	System.out.println("LIMITE " + especial.getLimite());
     	
     	while (especial.movimentacoes < 10) {
     		System.out.println("Saldo atual: R$ " + especial.getSaldo());
     		System.out.println("MOVIMENTO [D]Débito ou [C]Crédito");
     		especial.tipoMovimentacao = entrada.next().charAt(0);
-    		
-    		
+    	
     		if (especial.tipoMovimentacao == 'C') {
     		System.out.println("Valor do crédito: R$ ");
-    		especial.valorCredito = entrada.nextDouble();
-    		especial.credito();
+    		double valorDeposito = entrada.nextDouble();
+    		especial.credito(valorDeposito);
     		} else if (especial.tipoMovimentacao == 'D') {
     			System.out.println("Valor do débito: R$ ");
-    			especial.valorDebito = entrada.nextDouble();
-    			especial.debito();
+    			double valorSaque = entrada.nextDouble();
+    			especial.debito(valorSaque);
     		} else {
     			System.out.println("Opcão inválida!");
     		}
@@ -42,6 +40,6 @@ public class Banco {
     		}
     		System.out.println("=======================================");
     	}
-    	System.out.println("Saldo atual R$ " + especial.getSaldo() + " Limite disponível R$ " + especial.limite);
+    	System.out.println("Saldo atual R$ " + especial.getSaldo() + " Limite disponível R$ " + especial.getLimite());
     }
 }
