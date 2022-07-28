@@ -2,58 +2,56 @@ package br.com.getmoneyone;
 
 public class ContaEspecial extends Conta {
 	
-	double limite;
+	private double limite = 1000;
 	char tipoMovimentacao;
 	char continuar;
-	double valorDebito;
-	double valorCredito;
 	double movimentacoes;
-	double saldo;
 
 	protected ContaEspecial(int numero, String cpf) {
 		super(numero, cpf);	
+		setSaldo(0.0);
 	}
 
-	protected void debito() {
-		if (movimentacoes < 10) {        
-			saldo = getSaldo();  
-			if (saldo >= valorDebito) {   //Lógica para quando o saldo é maior do que o valor debitado.
-				saldo -= valorDebito;
+	protected void debito(double saque) { 
+			double saldo = getSaldo();
+			if (saldo >= saque) {   //Lógica para quando o saldo é maior do que o valor debitado.
+				saldo -= saque;
 				movimentacoes ++;		  //variavel de controle para as mobimentações (limitado a 10 movimentos).
 				setSaldo(saldo);
+				System.out.println("DEBITO " + saque);
+				
 			} else {
-				usarLimite();
+				usarLimite(saque);
 			}
-			
-		System.out.println("DEBITO " + valorDebito);
-		System.out.println("SALDO " + saldo);
-		} else {
-			System.out.println("LIMITE 10 MOVIMENTAÇOES");
-		}
+			System.out.println("SALDO " + saldo);
 	}
 
-	public void credito() {
-		if (movimentacoes < 10) {
-			saldo = getSaldo();
-			saldo += valorCredito;
+	public void credito(double deposito) {
+			double saldo = getSaldo();
+			saldo += deposito;
 			movimentacoes++;
 			setSaldo(saldo);
-			System.out.println("CREDITO " + valorCredito);
+			System.out.println("CREDITO " + deposito);
 			System.out.println("SALDO " + saldo);
-		}
 	}
 	
-	public void usarLimite() {
-		double limiteUtilizado = valorDebito - saldo;  //Lógica para quando o limite precisa ser utilizado.
-		if (limiteUtilizado <= 1000) {
+	public double getLimite() {
+		return limite;
+	}
+	
+	public void usarLimite(double saque) {
+		double saldo = getSaldo();
+		double limiteUtilizado = saque - saldo;  //Lógica para quando o limite precisa ser utilizado.
+		if (limiteUtilizado <= 1000 && limite >= limiteUtilizado) {
 		limite -= limiteUtilizado;                     //Atualiza limite
-		saldo -= valorDebito;
+		saldo -= saque;
 		saldo += limiteUtilizado;                      //Adiciona o limite utilizado com saldo.
 		movimentacoes ++;
 		setSaldo(saldo);
 		System.out.println("Saldo insuficiente, foi utilizado R$" + limiteUtilizado + " do seu limite, Limite ATUAL: " + limite);
+		System.out.println("DEBITO " + saque);
 		} else {
-			System.out.println("Ultrapassa seu saldo, e não tem mais limite disponível");
+			System.out.println("Ultrapassa seu saldo, e não tem mais limite disponível!");
 		}
 	}
 }
