@@ -10,13 +10,11 @@ public class ContaPoupanca extends Conta {
     private final int diaAniversarioPoupanca;
 
     @Override
-    protected void debito() {
-
+    protected void debito(double saque) {
     }
 
     @Override
-    public void credito() {
-
+    public void credito(double deposito) {
     }
 
     public int getDiaAniversarioPoupanca() {
