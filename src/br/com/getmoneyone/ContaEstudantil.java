@@ -29,7 +29,6 @@ public class ContaEstudantil extends Conta{
     }
 
     public void usarEstudantil(double valor){
-
         if(valor <= limiteEstudantil) {
             credito(valor);
             limiteEstudantil -= valor;
