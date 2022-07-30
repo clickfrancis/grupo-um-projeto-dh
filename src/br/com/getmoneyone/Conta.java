@@ -6,9 +6,11 @@ public abstract class Conta {
 
     private final String cpf;
 
-    private Double saldo;
+    private Double saldo = 0.0;
 
     private Boolean status;
+
+    private int movimentacao;
 
     protected Conta(int numero, String cpf) {
         this.numero = numero;
@@ -44,4 +46,11 @@ public abstract class Conta {
 
     abstract public void credito(double deposito);
 
+    public int getMovimentacao() {
+        return movimentacao;
+    }
+
+    public void setMovimentacao(int movimentacao) {
+        this.movimentacao = movimentacao;
+    }
 }
