@@ -61,6 +61,7 @@ public class Menu {
                     break;
                 case 3:
                     System.out.println("CONTA ESPECIAL");
+                    contaEspecial();
                     break;
                 case 4:
                     System.out.println("CONTA EMPRESA");
@@ -98,6 +99,12 @@ public class Menu {
         } else {
             this.exibirMenuNovamente();
         }
+    }
+    
+    private void contaEspecial() {
+    	ContaEspecial especial = new ContaEspecial(8787, "8787");
+    	especial.menu();
+    	
     }
 
 }
