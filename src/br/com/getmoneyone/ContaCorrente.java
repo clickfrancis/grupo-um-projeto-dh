@@ -47,27 +47,25 @@ public class ContaCorrente extends Conta {
             this.contadorTalao++;
             this.talaoSolicitado = true;
             this.debito(30.0);
-            System.out.println("Saldo atual: " + super.getSaldo());
         }
     }
 
-    public void movimentacoes() {
-        ContaCorrente cc = new ContaCorrente(123, "123");
+    public void movimentarConta() {
         Scanner scan = new Scanner(System.in);
         System.out.println("CONTA CORRENTE\n");
-        System.out.printf("Saldo atual: R$ %.1f", cc.getSaldo());
+        System.out.printf("Saldo atual: R$ %.1f", getSaldo());
 
         char solicitacao;
         char opcao;
-        cc.setTalaoSolicitado(false);
-        for (int i = 0; i < 3; i++) { // movimentações: até 10
+        setTalaoSolicitado(false);
+        for (int i = 0; i < 10; i++) {
             System.out.println(i);
             System.out.print("Movimento [D]ébito ou [C]redito? ");
             opcao = scan.next().charAt(0);
 
             if (opcao == 'D') {
                 System.out.print("Valor do movimento: R$ ");
-                cc.debito(scan.nextDouble());
+                debito(scan.nextDouble());
 
                 System.out.println("Continuar S/N: ");
                 opcao = scan.next().charAt(0);
@@ -79,14 +77,14 @@ public class ContaCorrente extends Conta {
                     solicitacao = scan.next().charAt(0);
 
                     if (solicitacao == 'S') {
-                        cc.pedirTalao();
+                        pedirTalao();
                         break;
                     }
                     break;
                 }
             } else if (opcao == 'C') {
                 System.out.print("Valor do movimento: R$ ");
-                cc.credito(scan.nextDouble());
+                credito(scan.nextDouble());
 
                 System.out.println("Continuar S/N: ");
                 opcao = scan.next().charAt(0);
@@ -98,7 +96,7 @@ public class ContaCorrente extends Conta {
                     solicitacao = scan.next().charAt(0);
 
                     if (solicitacao == 'S') {
-                        cc.pedirTalao();
+                        pedirTalao();
                         break;
                     }
                     break;
@@ -106,14 +104,14 @@ public class ContaCorrente extends Conta {
             }
         }
 
-        if (!cc.isTalaoSolicitado()) {
+        if (!isTalaoSolicitado()) {
             System.out.print("Deseja solicitar cheque? S/N: ");
             solicitacao = scan.next().charAt(0);
 
             if (solicitacao == 'S')
-                cc.pedirTalao();
+                pedirTalao();
         }
-//        System.out.printf("Saldo atual: R$ %.1f\n", cc.getSaldo());
+        System.out.printf("\nSaldo atual: R$ %.1f", getSaldo());
     }
 
 }

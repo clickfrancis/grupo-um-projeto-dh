@@ -33,6 +33,7 @@ public abstract class Menu {
 
     }
 
+    static ContaCorrente cc = new ContaCorrente(123, "213");
     public static void menu() {
 
         boolean verificador = true;
@@ -78,6 +79,7 @@ public abstract class Menu {
                     break;
                 case 2:
                     System.out.println("CONTA CORRENTE");
+                    cc.movimentarConta();
                     break;
                 case 3:
                     System.out.println("CONTA ESPECIAL");
