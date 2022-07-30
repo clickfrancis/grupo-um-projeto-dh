@@ -57,40 +57,38 @@ public class ContaEspecial extends Conta {
 	public void menu() {
 		Scanner entrada = new Scanner(System.in);
     	
-    	ContaEspecial especial = new ContaEspecial(1234, "098765");
+    	System.out.println("LIMITE " + getLimite());
     	
-    	System.out.println("LIMITE " + especial.getLimite());
-    	
-    	while (especial.movimentacoes < 10) {
-    		System.out.println("Saldo atual: R$ " + especial.getSaldo());
+    	while (movimentacoes < 10) {
+    		System.out.println("Saldo atual: R$ " + getSaldo());
     		System.out.println("MOVIMENTO [D]Débito ou [C]Crédito");
-    		especial.tipoMovimentacao = entrada.next().charAt(0);
+    		tipoMovimentacao = entrada.next().charAt(0);
     	
-    		if (especial.tipoMovimentacao == 'C') {
+    		if (tipoMovimentacao == 'C') {
     		System.out.println("Valor do crédito: R$ ");
     		double valorDeposito = entrada.nextDouble();
-    		especial.credito(valorDeposito);
-    		especial.movimentacoes++;
-    		} else if (especial.tipoMovimentacao == 'D') {
+    		credito(valorDeposito);
+    		movimentacoes++;
+    		} else if (tipoMovimentacao == 'D') {
     			System.out.println("Valor do débito: R$ ");
     			double valorSaque = entrada.nextDouble();
-    			especial.debito(valorSaque);
-    			especial.movimentacoes++;
+    			debito(valorSaque);
+    			movimentacoes++;
     		} else {
     			System.out.println("Opcão inválida!");
     		}
     		
     		System.out.println("Continuar [S][N]: ");
-    		especial.continuar = entrada.next().charAt(0);
-    		if (especial.continuar == 'N') {
+    		continuar = entrada.next().charAt(0);
+    		if (continuar == 'N') {
     			break;
-    		} else if (especial.continuar == 'S' && especial.movimentacoes >= 10) {
+    		} else if (continuar == 'S' && movimentacoes >= 10) {
     			System.out.println("Você atingiu o número máximo de movimentações. Finalizando...");
     			break;
     		}
     		System.out.println("=======================================");
     	}
-    	System.out.println("Saldo atual R$ " + especial.getSaldo() + " Limite disponível R$ " + especial.getLimite());
+    	System.out.println("Saldo atual R$ " + getSaldo() + " Limite disponível R$ " + getLimite());
 		
 	}
 }
