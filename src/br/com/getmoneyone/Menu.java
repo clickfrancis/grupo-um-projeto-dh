@@ -2,9 +2,21 @@ package br.com.getmoneyone;
 
 import java.util.Scanner;
 
-public class Menu {
+public abstract class Menu {
 
-    private void exibirMenu() {
+    public static void nomeBanco(){
+        System.out.println("  _______  _______ .____________..___  ___.  _______  .__   __.   _______ ____    ____   ______   .__   ___.  _______ ");
+        System.out.println(" /  _____||   ____||            ||   \\/   | /   __   \\ |  \\ |  | |   ____|\\   \\  /   / /   __  \\  |  \\ |   | |   ____|");
+        System.out.println("|  |  __  |  |__   `----|  |----`|  \\  /  | |  |  |  | |   \\|  | |  |__    \\   \\/   /  |  |  |  | |   \\|   | |  |__   ");
+        System.out.println("|  | |_ | |   __|       |  |     |  |\\/|  | |  |  |  | |  . `  | |   __|    \\_    _/   |  |  |  | |  . `   | |   __|  ");
+        System.out.println("|  |__| | |  |____      |  |     |  |  |  | |  `--'  | |  |\\   | |  |____     |  |     |  `--'  | |   |\\   | |  |____ ");
+        System.out.println(" \\______| |_______|     |__|     |__|  |__|  \\______/  |__| \\__| |_______|    |__|      \\______/  |__ | \\__| |_______|");
+    }
+    public static void exibirMenu() {
+        System.out.println("");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------");
+        System.out.println("");
+        System.out.println("");
         System.out.println(" __  __   ___   _  _   _   _ ");
         System.out.println("|  \\/  | | __| | \\| | | | | |");
         System.out.println("| |\\/| | | _|  | .` | | |_| |");
@@ -16,45 +28,53 @@ public class Menu {
         System.out.println("4 - CONTA EMPRESA");
         System.out.println("5 - CONTA ESTUDANTIL");
         System.out.println("6 - SAIR");
+        System.out.println("");
 
-        System.out.print("DIGITE O NÚMERO DA OPÇÂO DESEJADA: ");
+
     }
 
-    public void menu() {
-        Scanner scan = new Scanner(System.in);
+    public static void menu() {
 
-        System.out.println("   ____          _     __  __                                   ___                 ");
-        System.out.println("  / ___|   ___  | |_  |  \\/  |   ___    _ __     ___   _   _   / _ \\   _ __     ___ ");
-        System.out.println(" | |  _   / _ \\ | __| | |\\/| |  / _ \\  | '_ \\   / _ \\ | | | | | | | | | '_ \\   / _ \\");
-        System.out.println(" | |_| | |  __/ | |_  | |  | | | (_) | | | | | |  __/ | |_| | | |_| | | | | | |  __/");
-        System.out.println("  \\____|  \\___|  \\__| |_|  |_|  \\___/  |_| |_|  \\___|  \\__, |  \\___/  |_| |_|  \\___|");
+        boolean verificador = true;
+        exibirMenu();
 
-
-        System.out.println("  _______  _______ .___________..___  ___.   ______   .__   __.  _______ ____    ____   ______   .__   __.  _______ ");
-        System.out.println(" /  _____||   ____||           ||   \\/   |  /  __  \\  |  \\ |  | |   ____|\\   \\  /   /  /  __  \\  |  \\ |  | |   ____|");
-        System.out.println("|  |  __  |  |__   `---|  |----`|  \\  /  | |  |  |  | |   \\|  | |  |__    \\   \\/   /  |  |  |  | |   \\|  | |  |__   ");
-        System.out.println("|  | |_ | |   __|      |  |     |  |\\/|  | |  |  |  | |  . `  | |   __|    \\_    _/   |  |  |  | |  . `  | |   __|  ");
-        System.out.println("|  |__| | |  |____     |  |     |  |  |  | |  `--'  | |  |\\   | |  |____     |  |     |  `--'  | |  |\\   | |  |____ ");
-        System.out.println(" \\______| |_______|    |__|     |__|  |__|  \\______/  |__| \\__| |_______|    |__|      \\______/  |__| \\__| |_______|");
-
-        System.out.println("   ______         __     __  ___                                 ____               ");
-        System.out.println("  / ____/  ___   / /_   /  |/  /  ____    ____   ___    __  __  / __ \\   ____   ___ ");
-        System.out.println(" / / __   / _ \\ / __/  / /|_/ /  / __ \\  / __ \\ / _ \\  / / / / / / / /  / __ \\ / _ \\");
-        System.out.println("/ /_/ /  /  __// /_   / /  / /  / /_/ / / / / //  __/ / /_/ / / /_/ /  / / / //  __/");
-        System.out.println("\\____/   \\___/ \\__/  /_/  /_/   \\____/ /_/ /_/ \\___/  \\__, /  \\____/  /_/ /_/ \\___/ ");
-        System.out.println("                                                     /____/                         ");
+        int opcao = 0;
+        boolean acesso = false;
 
 
-        int opcao;
-        this.exibirMenu();
+        while(verificador){
+            System.out.print("\nDIGITE O NÚMERO DA OPÇÃO DESEJADA: ");
+            try{
+                Scanner menu = new Scanner(System.in);
+                opcao = menu.nextInt();
+                verificador = false;
+            }catch(Exception e){
+                System.out.println("\nSó é permitido números.");
+            }
+        }
+
+        if (opcao < 1 || opcao > 6){
+            while (!acesso){
+                System.out.print("\nInforme um número correspondente ao menu: ");
+                try{
+                    Scanner menu = new Scanner(System.in);
+                    opcao = menu.nextInt();
+                    if (opcao > 0 & opcao < 7) {
+                        acesso = true;
+                    } else {
+                        System.out.print("\nOpção inválida. ");
+                    }
+                }catch(Exception e){
+                    System.out.println("\nSó é permitido números.");
+                }
+            }
+        }
 
         do {
-            Scanner ler = new Scanner(System.in);
-            opcao = ler.nextInt();
-
             switch (opcao) {
                 case 1:
-                    System.out.println("CONTA POUPANÇA");
+                    System.out.println("\nBEM-VINDO A CONTA POUPANÇA");
+                    contaPoupanca();
                     break;
                 case 2:
                     System.out.println("CONTA CORRENTE");
@@ -78,33 +98,48 @@ public class Menu {
                     System.out.println("\nOpção inválida!");
                     break;
             }
-            this.exibirMenuNovamente();
+            exibirMenuNovamente();
         } while (opcao != 6);
     }
 
-    private void exibirMenuNovamente() {
-        Scanner scan = new Scanner(System.in);
-
-        System.out.println("6 - SAIR");
-        System.out.println("7 - Para exibir o menu novamente");
-        System.out.print("Digite a opção desejada: ");
-
-        int opcao = scan.nextInt();
-        if (opcao == 7) {
-            this.exibirMenu();
-        } else if (opcao == 6) {
-            System.out.println("Saindo...");
-            System.out.println("\n\nVolte logo!");
-            System.exit(0);
-        } else {
-            this.exibirMenuNovamente();
-        }
+    private static void contaPoupanca(){
+        ContaPoupanca contaPoupanca = new ContaPoupanca(99999, "255454");
+        contaPoupanca.operacao();
     }
-    
+
     private void contaEspecial() {
     	ContaEspecial especial = new ContaEspecial(8787, "8787");
     	especial.menu();
-    	
     }
 
+    private static void exibirMenuNovamente() {
+
+        int opcao = 0;
+        boolean verificador= true;
+
+        System.out.println("\nDIGITE O NÚMERO DA OPÇÃO DESEJADA:");
+        System.out.println("\n6 - Voltar ao menu para escolher o tipo de conta.");
+        System.out.println("7 - Sair da aplicação.");
+
+        while(verificador){
+            System.out.print("\nDigite a opção desejada: ");
+            try{
+                Scanner menu = new Scanner(System.in);
+                opcao = menu.nextInt();
+                verificador = false;
+            }catch(Exception e){
+                System.out.println("\nSó é permitido números.");
+            }
+        }
+
+        if (opcao == 6) {
+           menu();
+        } else if (opcao == 7) {
+            System.out.println("\nEncerrando aplicação...");
+            System.out.println("\n\nVolte logo!");
+            System.exit(0);
+        } else {
+            exibirMenuNovamente();
+        }
+    }
 }

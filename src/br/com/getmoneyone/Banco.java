@@ -8,5 +8,8 @@ public class Banco {
     	
     	menu.menu();
 
+        Menu.nomeBanco();
+        Menu.menu();
+
     }
 }
