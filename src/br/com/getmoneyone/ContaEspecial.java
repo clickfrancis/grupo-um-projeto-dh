@@ -5,8 +5,6 @@ import java.util.Scanner;
 public class ContaEspecial extends Conta {
 	
 	private double limite = 1000;
-	char tipoMovimentacao;
-	char continuar;
 
 	protected ContaEspecial(int numero, String cpf) {
 		super(numero, cpf);	
@@ -54,11 +52,14 @@ public class ContaEspecial extends Conta {
 	}
 	
 	public void menu() {
+		char tipoMovimentacao;
+		char continuar;
+		
 		Scanner entrada = new Scanner(System.in);
     	
     	System.out.println("LIMITE " + getLimite());
     	
-    	for (int i = 1; i <= 10; i++) {
+    	for (int i = 0; i < 10; i++) {
     		System.out.println("SALDO ATUAL " + getSaldo());
     		System.out.println("MOVIMENTO [D]Débito ou [C]Crédito");
     		tipoMovimentacao = entrada.next().charAt(0);
@@ -84,12 +85,9 @@ public class ContaEspecial extends Conta {
     		} else if (continuar == 'N') {
     			System.out.println("Encerrando!");
     			break;
-    		} 
-    		System.out.println("SASDHHSBDHJDUVADUSAVUBASI" + i);
+    		}
     		System.out.println("=======================================");
     	}
-    	System.out.println("Saldo atual R$ " + getSaldo() + " Limite disponível R$ " + getLimite());
-    	
-	entrada.close();	
+    	System.out.println("Saldo atual R$ " + getSaldo() + " Limite disponível R$ " + getLimite());	
 	}
 }

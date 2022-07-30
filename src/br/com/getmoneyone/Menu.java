@@ -107,7 +107,7 @@ public abstract class Menu {
         contaPoupanca.operacao();
     }
 
-    private void contaEspecial() {
+    private static void contaEspecial() {
     	ContaEspecial especial = new ContaEspecial(8787, "8787");
     	especial.menu();
     }
@@ -116,7 +116,7 @@ public abstract class Menu {
 
         int opcao = 0;
         boolean verificador= true;
-
+        
         System.out.println("\nDIGITE O NÚMERO DA OPÇÃO DESEJADA:");
         System.out.println("\n6 - Voltar ao menu para escolher o tipo de conta.");
         System.out.println("7 - Sair da aplicação.");
