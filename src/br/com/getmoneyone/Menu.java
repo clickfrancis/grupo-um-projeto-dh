@@ -81,6 +81,7 @@ public abstract class Menu {
                     break;
                 case 3:
                     System.out.println("CONTA ESPECIAL");
+                    contaEspecial();
                     break;
                 case 4:
                     System.out.println("CONTA EMPRESA");
@@ -106,11 +107,16 @@ public abstract class Menu {
         contaPoupanca.operacao();
     }
 
+    private static void contaEspecial() {
+    	ContaEspecial especial = new ContaEspecial(8787, "8787");
+    	especial.menu();
+    }
+
     private static void exibirMenuNovamente() {
 
         int opcao = 0;
         boolean verificador= true;
-
+        
         System.out.println("\nDIGITE O NÚMERO DA OPÇÃO DESEJADA:");
         System.out.println("\n6 - Voltar ao menu para escolher o tipo de conta.");
         System.out.println("7 - Sair da aplicação.");
