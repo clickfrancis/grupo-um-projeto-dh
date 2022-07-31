@@ -4,7 +4,33 @@ import java.util.Scanner;
 
 public abstract class Menu {
 
-    public static void nomeBanco(){
+    private static void contaCorrente() {
+        ContaCorrente contaCorrente = new ContaCorrente(94199, "78454");
+        contaCorrente.movimentarConta();
+    }
+
+    private static void contaPoupanca() {
+        ContaPoupanca contaPoupanca = new ContaPoupanca(99999, "255454");
+        contaPoupanca.operacao();
+    }
+
+    private static void contaEspecial() {
+        ContaEspecial especial = new ContaEspecial(8787, "8787");
+        especial.menu();
+    }
+
+    private static void contaEmpresa() {
+        ContaEmpresa empresa = new ContaEmpresa(1212, "1212");
+        empresa.operacao();
+    }
+
+    private static void contaEstudantil() {
+
+    }
+
+
+
+    public static void nomeBanco() {
         System.out.println("  _______  _______ .____________..___  ___.  _______  .__   __.   _______ ____    ____   ______   .__   ___.  _______ ");
         System.out.println(" /  _____||   ____||            ||   \\/   | /   __   \\ |  \\ |  | |   ____|\\   \\  /   / /   __  \\  |  \\ |   | |   ____|");
         System.out.println("|  |  __  |  |__   `----|  |----`|  \\  /  | |  |  |  | |   \\|  | |  |__    \\   \\/   /  |  |  |  | |   \\|   | |  |__   ");
@@ -12,6 +38,7 @@ public abstract class Menu {
         System.out.println("|  |__| | |  |____      |  |     |  |  |  | |  `--'  | |  |\\   | |  |____     |  |     |  `--'  | |   |\\   | |  |____ ");
         System.out.println(" \\______| |_______|     |__|     |__|  |__|  \\______/  |__| \\__| |_______|    |__|      \\______/  |__ | \\__| |_______|");
     }
+
     public static void exibirMenu() {
         System.out.println("");
         System.out.println("--------------------------------------------------------------------------------------------------------------------");
@@ -33,7 +60,6 @@ public abstract class Menu {
 
     }
 
-    static ContaCorrente cc = new ContaCorrente(123, "213");
     public static void menu() {
 
         boolean verificador = true;
@@ -43,21 +69,21 @@ public abstract class Menu {
         boolean acesso = false;
 
 
-        while(verificador){
+        while (verificador) {
             System.out.print("\nDIGITE O NÚMERO DA OPÇÃO DESEJADA: ");
-            try{
+            try {
                 Scanner menu = new Scanner(System.in);
                 opcao = menu.nextInt();
                 verificador = false;
-            }catch(Exception e){
+            } catch (Exception e) {
                 System.out.println("\nSó é permitido números.");
             }
         }
 
-        if (opcao < 1 || opcao > 6){
-            while (!acesso){
+        if (opcao < 1 || opcao > 6) {
+            while (!acesso) {
                 System.out.print("\nInforme um número correspondente ao menu: ");
-                try{
+                try {
                     Scanner menu = new Scanner(System.in);
                     opcao = menu.nextInt();
                     if (opcao > 0 & opcao < 7) {
@@ -65,7 +91,7 @@ public abstract class Menu {
                     } else {
                         System.out.print("\nOpção inválida. ");
                     }
-                }catch(Exception e){
+                } catch (Exception e) {
                     System.out.println("\nSó é permitido números.");
                 }
             }
@@ -78,8 +104,8 @@ public abstract class Menu {
                     contaPoupanca();
                     break;
                 case 2:
-                    System.out.println("CONTA CORRENTE");
-                    cc.movimentarConta();
+                    System.out.println("\nBEM-VINDO A CONTA CORRENTE");
+                    contaCorrente();
                     break;
                 case 3:
                     System.out.println("\nBEM-VINDO A CONTA ESPECIAL");
@@ -90,7 +116,7 @@ public abstract class Menu {
                     contaEmpresa();
                     break;
                 case 5:
-                    System.out.println("CONTA ESTUDANTIL");
+                    System.out.println("\nBEM-VINDO A CONTA ESTUDANTIL");
                     break;
                 case 6:
                     System.out.println("Saindo...");
@@ -105,42 +131,28 @@ public abstract class Menu {
         } while (opcao != 6);
     }
 
-    private static void contaPoupanca(){
-        ContaPoupanca contaPoupanca = new ContaPoupanca(99999, "255454");
-        contaPoupanca.operacao();
-    }
-
-    private static void contaEspecial() {
-    	ContaEspecial especial = new ContaEspecial(8787, "8787");
-    	especial.menu();
-    }
- 
-    private static void contaEmpresa() {
-    	ContaEmpresa empresa = new ContaEmpresa(1212, "1212");
-    	empresa.operacao();
-    }
     private static void exibirMenuNovamente() {
 
         int opcao = 0;
-        boolean verificador= true;
-        
+        boolean verificador = true;
+
         System.out.println("\nDIGITE O NÚMERO DA OPÇÃO DESEJADA:");
         System.out.println("\n6 - Voltar ao menu para escolher o tipo de conta.");
         System.out.println("7 - Sair da aplicação.");
 
-        while(verificador){
+        while (verificador) {
             System.out.print("\nDigite a opção desejada: ");
-            try{
+            try {
                 Scanner menu = new Scanner(System.in);
                 opcao = menu.nextInt();
                 verificador = false;
-            }catch(Exception e){
+            } catch (Exception e) {
                 System.out.println("\nSó é permitido números.");
             }
         }
 
         if (opcao == 6) {
-           menu();
+            menu();
         } else if (opcao == 7) {
             System.out.println("\nEncerrando aplicação...");
             System.out.println("\n\nVolte logo!");
