@@ -12,10 +12,6 @@ public class ContaEstudantil extends Conta {
         setSaldo(0.0);
     }
 
-    public void setLimiteEstudantil(double limiteEstudantil) {
-        this.limiteEstudantil = limiteEstudantil;
-    }
-
     @Override
     protected void debito(double valor) {
         if (valor <= getSaldo()) {
