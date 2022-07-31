@@ -25,7 +25,8 @@ public abstract class Menu {
     }
 
     private static void contaEstudantil() {
-
+        ContaEstudantil contaEstudantil = new ContaEstudantil(4523, "1845937");
+        contaEstudantil.operacao();
     }
 
 
@@ -117,6 +118,7 @@ public abstract class Menu {
                     break;
                 case 5:
                     System.out.println("\nBEM-VINDO A CONTA ESTUDANTIL");
+                    contaEstudantil();
                     break;
                 case 6:
                     System.out.println("Saindo...");
