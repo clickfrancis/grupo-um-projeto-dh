@@ -6,7 +6,7 @@ public abstract class Conta {
 
     private final String cpf;
 
-    private Double saldo = 0.0;
+    private Double saldo;
 
     private Boolean status;
 

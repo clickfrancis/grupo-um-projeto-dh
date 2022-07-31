@@ -7,9 +7,12 @@ public class ContaPoupanca extends Conta {
     protected ContaPoupanca(int numero, String cpf) {
         super(numero, cpf);
         this.diaAniversarioPoupanca = diaAniversarioPoupanca;
+        setMovimentacao(0);
+        setSaldo(0.0);
+
     }
 
-    private int diaAniversarioPoupanca = 0;
+    private int diaAniversarioPoupanca = 20;
 
     public int getDiaAniversarioPoupanca() {
         return diaAniversarioPoupanca;
@@ -24,6 +27,7 @@ public class ContaPoupanca extends Conta {
             double novoSaldo = getSaldo() - saque;
             setSaldo(novoSaldo);
             setMovimentacao(getMovimentacao() + 1);
+            System.out.println("\nSaque de: "+ saque);
             System.out.println("\nSaque realizado com sucesso.");
             System.out.println("Seu novo saldo é: " + getSaldo());
         }
@@ -34,6 +38,7 @@ public class ContaPoupanca extends Conta {
         double novoSaldo = getSaldo() + deposito;
         setSaldo(novoSaldo);
         setMovimentacao(getMovimentacao() + 1);
+        System.out.println("\nDepósito de: " + deposito);
         System.out.println("\nDepósito realizado com sucesso.");
         System.out.println("Seu novo saldo é: " + getSaldo());
     }
@@ -60,6 +65,7 @@ public class ContaPoupanca extends Conta {
 
         while (getMovimentacao() < 11) {
             verificador = true;
+            System.out.println("\nSALDO ATUAL " + getSaldo());
             System.out.println("\n1 - SAQUE");
             System.out.println("2 - DEPÓSITO");
             System.out.println("3 - CORREÇÃO");
@@ -94,7 +100,7 @@ public class ContaPoupanca extends Conta {
                         break;
                     case 2:
                         while(verificador){
-                            System.out.print("\nInfome o valor que deseja sacar: ");
+                            System.out.print("\nInfome o valor que deseja depositar: ");
                             try{
                                 Scanner valorDeposito = new Scanner(System.in);
                                 double valorD = valorDeposito.nextDouble();
@@ -107,7 +113,7 @@ public class ContaPoupanca extends Conta {
                         break;
                     case 3:
                         while(verificador){
-                            System.out.print("\nInfome o valor que deseja sacar: ");
+                            System.out.print("\nInfome a data de aniversário: ");
                             try{
                                 Scanner ajuste = new Scanner(System.in);
                                 int correcao = ajuste.nextInt();
