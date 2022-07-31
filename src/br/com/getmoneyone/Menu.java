@@ -80,11 +80,11 @@ public abstract class Menu {
                     System.out.println("CONTA CORRENTE");
                     break;
                 case 3:
-                    System.out.println("CONTA ESPECIAL");
+                    System.out.println("\nBEM-VINDO A CONTA ESPECIAL");
                     contaEspecial();
                     break;
                 case 4:
-                    System.out.println("CONTA EMPRESA");
+                    System.out.println("\nBEM-VINDO A CONTA EMPRESA");
                     contaEmpresa();
                     break;
                 case 5:
@@ -115,7 +115,7 @@ public abstract class Menu {
  
     private static void contaEmpresa() {
     	ContaEmpresa empresa = new ContaEmpresa(1212, "1212");
-    	empresa.menu();
+    	empresa.operacao();
     }
     private static void exibirMenuNovamente() {
 

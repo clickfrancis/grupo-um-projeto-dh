@@ -18,10 +18,12 @@ public class ContaEmpresa extends Conta {
 		if(saldo >= saque) {
 			saldo = saldo - saque;
 			setSaldo(saldo);
-			System.out.println("DEBITO " + saque);
-	        System.out.println("SALDO " + saldo);
+			System.out.println("\nSaque de: "+ saque);
+			System.out.println("\nSaque realizado com sucesso.");
+			System.out.println("Seu novo saldo é: " + saldo);
 		}else {
-			System.out.println("Nao tem saldo disponivel para saque");
+			System.out.println("\nSaque não realizado. O valor do saque é maior que o saldo na conta.");
+			System.out.println("O saldo na sua conta é: " + getSaldo());
 		}
 	}
 
@@ -30,8 +32,9 @@ public class ContaEmpresa extends Conta {
 		double saldo = getSaldo();
 		saldo = saldo + deposito;
 		setSaldo(saldo);
-		System.out.println("CREDITO " + deposito);
-		System.out.println("SALDO " + saldo);
+		System.out.println("\nDepósito de: " + deposito);
+		System.out.println("\nDepósito realizado com sucesso.");
+		System.out.println("Seu novo saldo é: " + saldo);
 	}
 	
 	public double getEmprestimoEmpresa() {
@@ -40,14 +43,17 @@ public class ContaEmpresa extends Conta {
 	
 	public void pedirEmprestimo(double saque) {
 		double saldo = getSaldo();
-		emprestimoEmpresa = emprestimoEmpresa - saque;
-	    saldo = saldo + saque;
-		setSaldo(saldo);
-		System.out.println("SALDO + VALOR DE EMPRESTIMO SOLICITADO " + saldo); 
-		
+		if (saque > emprestimoEmpresa){
+			System.out.println("O valor que você quer sacar é maior que o limite disponível");
+		} else {
+			emprestimoEmpresa = emprestimoEmpresa - saque;
+			saldo = saldo + saque;
+			setSaldo(saldo);
+			System.out.println("SALDO + VALOR DE EMPRESTIMO SOLICITADO " + saldo);
+		}
 	}
 	
-	public void menu() {
+	public void operacao() {
 		char tipoMovimentaçao;
 		char continuar;
 		
