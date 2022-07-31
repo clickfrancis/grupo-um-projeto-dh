@@ -10,6 +10,8 @@ public abstract class Conta {
 
     private Boolean status;
 
+    private int movimentacao;
+
     protected Conta(int numero, String cpf) {
         this.numero = numero;
         this.cpf = cpf;
@@ -40,8 +42,15 @@ public abstract class Conta {
         this.status = status;
     }
 
-    abstract protected void debito();
+    abstract protected void debito(double saque);
 
-    abstract public void credito ();
+    abstract public void credito(double deposito);
 
+    public int getMovimentacao() {
+        return movimentacao;
+    }
+
+    public void setMovimentacao(int movimentacao) {
+        this.movimentacao = movimentacao;
+    }
 }
