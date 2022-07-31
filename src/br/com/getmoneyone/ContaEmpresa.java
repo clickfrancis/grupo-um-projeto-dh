@@ -15,11 +15,14 @@ public class ContaEmpresa extends Conta {
 	@Override
 	protected void debito(double saque) {
 		double saldo = getSaldo();
+		if(saldo >= saque) {
 			saldo = saldo - saque;
 			setSaldo(saldo);
 			System.out.println("DEBITO " + saque);
 	        System.out.println("SALDO " + saldo);
-		
+		}else {
+			System.out.println("Nao tem saldo disponivel para saque");
+		}
 	}
 
 	@Override
@@ -40,8 +43,8 @@ public class ContaEmpresa extends Conta {
 		emprestimoEmpresa = emprestimoEmpresa - saque;
 	    saldo = saldo + saque;
 		setSaldo(saldo);
-		System.out.println("SALDO + VALOR DE EMPRESTIMO SOLICITADO" + saldo); 
-		System.out.println("");
+		System.out.println("SALDO + VALOR DE EMPRESTIMO SOLICITADO " + saldo); 
+		
 	}
 	
 	public void menu() {
@@ -65,9 +68,11 @@ public class ContaEmpresa extends Conta {
 				double valorSaque = entrada.nextDouble();
 				debito(valorSaque);
 			}else if(tipoMovimentaçao == 'E'){
+				System.out.println("Qual valor de emprestimo deseja sacar:" );
 				double valorEmprestimo = entrada.nextDouble();
 				pedirEmprestimo(valorEmprestimo);
-			System.out.println("Opçao invalida");
+			}else{
+				System.out.println("Opçao invalida");
 			}
 			
 			System.out.println("Continuar S-Sim ou N-Nao");
@@ -79,7 +84,7 @@ public class ContaEmpresa extends Conta {
 				break;
 			}
 		}
-		System.out.println("Seu saldo atualizado seria " + getSaldo() + "Seu valor atual de emprestimo seria de  " + emprestimoEmpresa);
+		System.out.println("Seu saldo atualizado seria " + getSaldo() + " Seu valor atual de emprestimo seria de " + emprestimoEmpresa);
 			
 		
 	}

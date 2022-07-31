@@ -85,6 +85,7 @@ public abstract class Menu {
                     break;
                 case 4:
                     System.out.println("CONTA EMPRESA");
+                    contaEmpresa();
                     break;
                 case 5:
                     System.out.println("CONTA ESTUDANTIL");
@@ -111,7 +112,11 @@ public abstract class Menu {
     	ContaEspecial especial = new ContaEspecial(8787, "8787");
     	especial.menu();
     }
-
+ 
+    private static void contaEmpresa() {
+    	ContaEmpresa empresa = new ContaEmpresa(1212, "1212");
+    	empresa.menu();
+    }
     private static void exibirMenuNovamente() {
 
         int opcao = 0;
