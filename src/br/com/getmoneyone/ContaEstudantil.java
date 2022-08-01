@@ -78,5 +78,6 @@ public class ContaEstudantil extends Conta {
                 this.limiteEstudantil += valor;
             }
         }
+        System.out.printf("\nSaldo atual: R$ %.2f", getSaldo());
     }
 }
