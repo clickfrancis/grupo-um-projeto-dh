@@ -73,7 +73,7 @@ public class ContaCorrente extends Conta {
                 if (opcao == 'S') {
                     continue;
                 } else if (opcao == 'N') {
-                    System.out.print("Deseja solicitar cheque? S/N");
+                    System.out.print("Deseja solicitar cheque? S/N: ");
                     solicitacao = scan.next().charAt(0);
 
                     if (solicitacao == 'S') {
@@ -105,13 +105,13 @@ public class ContaCorrente extends Conta {
         }
 
         if (!isTalaoSolicitado()) {
-            System.out.print("Deseja solicitar cheque? S/N: ");
+            System.out.print("Deseja solicitar cheque agora? S/N: ");
             solicitacao = scan.next().charAt(0);
 
             if (solicitacao == 'S')
                 pedirTalao();
         }
-        System.out.printf("\nSaldo atual: R$ %.1f", getSaldo());
+        System.out.printf("\nSaldo atual: R$ %.2f", getSaldo());
     }
 
 }
