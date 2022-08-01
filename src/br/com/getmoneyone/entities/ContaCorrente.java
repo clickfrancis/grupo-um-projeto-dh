@@ -1,4 +1,6 @@
-package br.com.getmoneyone;
+package br.com.getmoneyone.entities;
+
+import br.com.getmoneyone.entities.Conta;
 
 import java.util.Scanner;
 
@@ -59,7 +61,7 @@ public class ContaCorrente extends Conta {
         char opcao;
         setTalaoSolicitado(false);
         for (int i = 0; i < 10; i++) {
-            System.out.print("Movimento [D]ébito ou [C]redito? ");
+            System.out.print("\nMovimento [D]ébito ou [C]rédito? ");
             opcao = scan.next().charAt(0);
 
             if (opcao == 'D') {

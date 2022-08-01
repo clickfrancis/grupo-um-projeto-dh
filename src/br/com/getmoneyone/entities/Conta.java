@@ -1,4 +1,4 @@
-package br.com.getmoneyone;
+package br.com.getmoneyone.entities;
 
 public abstract class Conta {
 

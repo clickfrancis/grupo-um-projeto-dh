@@ -1,4 +1,6 @@
-package br.com.getmoneyone;
+package br.com.getmoneyone.app;
+
+import br.com.getmoneyone.entities.*;
 
 import java.util.Scanner;
 

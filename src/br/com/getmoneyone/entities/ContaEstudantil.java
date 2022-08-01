@@ -1,13 +1,13 @@
 // Código de Lívia Barcellos Botelho
 
-package br.com.getmoneyone;
+package br.com.getmoneyone.entities;
 
 import java.util.Scanner;
 
 public class ContaEstudantil extends Conta {
     private double limiteEstudantil = 5000;
 
-    protected ContaEstudantil(int numero, String cpf) {
+    public ContaEstudantil(int numero, String cpf) {
         super(numero, cpf);
         setSaldo(0.0);
     }

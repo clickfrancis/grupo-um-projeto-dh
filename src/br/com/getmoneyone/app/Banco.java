@@ -1,4 +1,4 @@
-package br.com.getmoneyone;
+package br.com.getmoneyone.app;
 
 public class Banco {
 

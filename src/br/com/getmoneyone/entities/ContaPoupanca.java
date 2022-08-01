@@ -1,10 +1,10 @@
-package br.com.getmoneyone;
+package br.com.getmoneyone.entities;
 
 import java.util.Scanner;
 
 public class ContaPoupanca extends Conta {
 
-    protected ContaPoupanca(int numero, String cpf) {
+    public ContaPoupanca(int numero, String cpf) {
         super(numero, cpf);
         this.diaAniversarioPoupanca = diaAniversarioPoupanca;
         setMovimentacao(0);
@@ -27,7 +27,7 @@ public class ContaPoupanca extends Conta {
             double novoSaldo = getSaldo() - saque;
             setSaldo(novoSaldo);
             setMovimentacao(getMovimentacao() + 1);
-            System.out.println("\nSaque de: "+ saque);
+            System.out.println("\nSaque de: " + saque);
             System.out.println("\nSaque realizado com sucesso.");
             System.out.println("Seu novo saldo é: " + getSaldo());
         }
@@ -71,13 +71,13 @@ public class ContaPoupanca extends Conta {
             System.out.println("3 - CORREÇÃO");
             System.out.println("4 - Sair");
 
-            while(verificador){
+            while (verificador) {
                 System.out.print("\nInforme um número correspondente ao menu: ");
-                try{
+                try {
                     Scanner menu = new Scanner(System.in);
                     opcao = menu.nextInt();
                     verificador = false;
-                }catch(Exception e){
+                } catch (Exception e) {
                     System.out.println("\nSó é permitido números.");
                 }
             }
@@ -86,40 +86,40 @@ public class ContaPoupanca extends Conta {
             if (opcao > 0 & opcao < 5) {
                 switch (opcao) {
                     case 1:
-                        while(verificador){
+                        while (verificador) {
                             System.out.print("\nInfome o valor que deseja sacar: ");
-                            try{
+                            try {
                                 Scanner valorSaque = new Scanner(System.in);
                                 double valorS = valorSaque.nextDouble();
                                 debito(valorS);
                                 verificador = false;
-                            }catch(Exception e){
+                            } catch (Exception e) {
                                 System.out.println("\nVocê não digitou o valor corretamente.");
                             }
                         }
                         break;
                     case 2:
-                        while(verificador){
+                        while (verificador) {
                             System.out.print("\nInfome o valor que deseja depositar: ");
-                            try{
+                            try {
                                 Scanner valorDeposito = new Scanner(System.in);
                                 double valorD = valorDeposito.nextDouble();
                                 credito(valorD);
                                 verificador = false;
-                            }catch(Exception e){
+                            } catch (Exception e) {
                                 System.out.println("\nVocê não digitou o valor corretamente.");
                             }
                         }
                         break;
                     case 3:
-                        while(verificador){
+                        while (verificador) {
                             System.out.print("\nInfome a data de aniversário: ");
-                            try{
+                            try {
                                 Scanner ajuste = new Scanner(System.in);
                                 int correcao = ajuste.nextInt();
                                 correcao(correcao);
                                 verificador = false;
-                            }catch(Exception e){
+                            } catch (Exception e) {
                                 System.out.println("\nVocê não digitou o valor corretamente.");
                             }
                         }
