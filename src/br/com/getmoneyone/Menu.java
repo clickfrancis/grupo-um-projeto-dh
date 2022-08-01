@@ -4,10 +4,7 @@ import java.util.Scanner;
 
 public abstract class Menu {
 
-    private static void contaCorrente() {
-        ContaCorrente contaCorrente = new ContaCorrente(94199, "78454");
-        contaCorrente.movimentarConta();
-    }
+    static ContaCorrente contaCorrente = new ContaCorrente(94199, "78454");
 
     private static void contaPoupanca() {
         ContaPoupanca contaPoupanca = new ContaPoupanca(99999, "255454");
@@ -30,19 +27,22 @@ public abstract class Menu {
     }
 
 
-
-    public static void nomeBanco() {
-        System.out.println("  _______  _______ .____________..___  ___.  _______  .__   __.   _______ ____    ____   ______   .__   ___.  _______ ");
-        System.out.println(" /  _____||   ____||            ||   \\/   | /   __   \\ |  \\ |  | |   ____|\\   \\  /   / /   __  \\  |  \\ |   | |   ____|");
-        System.out.println("|  |  __  |  |__   `----|  |----`|  \\  /  | |  |  |  | |   \\|  | |  |__    \\   \\/   /  |  |  |  | |   \\|   | |  |__   ");
-        System.out.println("|  | |_ | |   __|       |  |     |  |\\/|  | |  |  |  | |  . `  | |   __|    \\_    _/   |  |  |  | |  . `   | |   __|  ");
-        System.out.println("|  |__| | |  |____      |  |     |  |  |  | |  `--'  | |  |\\   | |  |____     |  |     |  `--'  | |   |\\   | |  |____ ");
-        System.out.println(" \\______| |_______|     |__|     |__|  |__|  \\______/  |__| \\__| |_______|    |__|      \\______/  |__ | \\__| |_______|");
+    private static void nomeBanco() {
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("                  _______  _______ .____________..___  ___.  _______  .__   __.   _______ ____    ____   ______   .__   ___.  _______ ");
+        System.out.println("                 /  _____||   ____||            ||   \\/   | /   __   \\ |  \\ |  | |   ____|\\   \\  /   / /   __  \\  |  \\ |   | |   ____|");
+        System.out.println("                |  |  __  |  |__   `----|  |----`|  \\  /  | |  |  |  | |   \\|  | |  |__    \\   \\/   /  |  |  |  | |   \\|   | |  |__   ");
+        System.out.println("                |  | |_ | |   __|       |  |     |  |\\/|  | |  |  |  | |  . `  | |   __|    \\_    _/   |  |  |  | |  . `   | |   __|  ");
+        System.out.println("                |  |__| | |  |____      |  |     |  |  |  | |  `--'  | |  |\\   | |  |____     |  |     |  `--'  | |   |\\   | |  |____ ");
+        System.out.println("                 \\______| |_______|     |__|     |__|  |__|  \\______/  |__| \\__| |_______|    |__|      \\______/  |__ | \\__| |_______|");
+        System.out.println("                                                                  AQUI SEU DINHEIRO VALE MAIS!");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 
     public static void exibirMenu() {
+        nomeBanco();
+
         System.out.println("");
-        System.out.println("--------------------------------------------------------------------------------------------------------------------");
         System.out.println("");
         System.out.println("");
         System.out.println(" __  __   ___   _  _   _   _ ");
@@ -56,9 +56,7 @@ public abstract class Menu {
         System.out.println("4 - CONTA EMPRESA");
         System.out.println("5 - CONTA ESTUDANTIL");
         System.out.println("6 - SAIR");
-        System.out.println("");
-
-
+        System.out.print("\nDIGITE O NÚMERO DA OPÇÂO DESEJADA: ");
     }
 
     public static void menu() {
@@ -71,7 +69,6 @@ public abstract class Menu {
 
 
         while (verificador) {
-            System.out.print("\nDIGITE O NÚMERO DA OPÇÃO DESEJADA: ");
             try {
                 Scanner menu = new Scanner(System.in);
                 opcao = menu.nextInt();
@@ -101,22 +98,37 @@ public abstract class Menu {
         do {
             switch (opcao) {
                 case 1:
+                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n");
+                    nomeBanco();
+                    System.out.println("\n\n\n");
                     System.out.println("\nBEM-VINDO A CONTA POUPANÇA");
                     contaPoupanca();
                     break;
                 case 2:
+                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                    nomeBanco();
+                    System.out.println("\n\n\n\n\n\n\n\n");
                     System.out.println("\nBEM-VINDO A CONTA CORRENTE");
-                    contaCorrente();
+                    contaCorrente.movimentarConta();
                     break;
                 case 3:
+                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                    nomeBanco();
+                    System.out.println("\n\n\n\n\n\n\n\n");
                     System.out.println("\nBEM-VINDO A CONTA ESPECIAL");
                     contaEspecial();
                     break;
                 case 4:
+                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                    nomeBanco();
+                    System.out.println("\n\n\n\n\n\n\n\n");
                     System.out.println("\nBEM-VINDO A CONTA EMPRESA");
                     contaEmpresa();
                     break;
                 case 5:
+                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                    nomeBanco();
+                    System.out.println("\n\n\n\n\n");
                     System.out.println("\nBEM-VINDO A CONTA ESTUDANTIL");
                     contaEstudantil();
                     break;
@@ -138,12 +150,13 @@ public abstract class Menu {
         int opcao = 0;
         boolean verificador = true;
 
-        System.out.println("\nDIGITE O NÚMERO DA OPÇÃO DESEJADA:");
-        System.out.println("\n6 - Voltar ao menu para escolher o tipo de conta.");
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("O que deseja fazer agora?\n");
+        System.out.println("6 - Voltar ao menu.");
         System.out.println("7 - Sair da aplicação.");
+        System.out.print("\nDIGITE O NÚMERO DA OPÇÃO DESEJADA: ");
 
         while (verificador) {
-            System.out.print("\nDigite a opção desejada: ");
             try {
                 Scanner menu = new Scanner(System.in);
                 opcao = menu.nextInt();
