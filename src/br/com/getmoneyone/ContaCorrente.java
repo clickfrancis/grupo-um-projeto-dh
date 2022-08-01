@@ -59,7 +59,6 @@ public class ContaCorrente extends Conta {
         char opcao;
         setTalaoSolicitado(false);
         for (int i = 0; i < 10; i++) {
-            System.out.println(i);
             System.out.print("Movimento [D]ébito ou [C]redito? ");
             opcao = scan.next().charAt(0);
 
