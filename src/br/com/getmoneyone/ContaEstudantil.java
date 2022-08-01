@@ -26,9 +26,9 @@ public class ContaEstudantil extends Conta {
         setSaldo(getSaldo() + valor);
     }
 
-    public void usarEstudantil(double valor, ContaEstudantil conta) {
-        if (valor <= conta.limiteEstudantil) {
-            conta.limiteEstudantil -= valor;
+    public void usarEstudantil(double valor) {
+        if (valor <= this.limiteEstudantil) {
+            this.limiteEstudantil -= valor;
             credito(valor);
         } else {
             System.out.println("Limite estudantil insuficiente");
@@ -41,8 +41,8 @@ public class ContaEstudantil extends Conta {
         Scanner sc = new Scanner(System.in);
 
         for (int i = 0; i < 10; i++) {
-            System.out.println("Saldo Atual: " + conta.getSaldo());
-            System.out.println("Limite estudantil disponível: " + conta.limiteEstudantil);
+            System.out.println("Saldo Atual: " + this.getSaldo());
+            System.out.println("Limite estudantil disponível: " + this.limiteEstudantil);
             System.out.println("Qual movimento deseja realizar?");
             System.out.println("D-Debito, C-Credito ou L-Utilizar Limite Estudantil");
             movimento = sc.nextLine();
@@ -51,11 +51,11 @@ public class ContaEstudantil extends Conta {
             valor = sc.nextDouble();
 
             if (movimento.equals("C")) {
-                conta.credito(valor);
+                this.credito(valor);
             } else if (movimento.equals("D")) {
-                conta.debito(valor);
+                this.debito(valor);
             } else if (movimento.equals("L")) {
-                conta.usarEstudantil(valor, conta);
+                this.usarEstudantil(valor);
             }
             sc.nextLine();
 
@@ -65,7 +65,7 @@ public class ContaEstudantil extends Conta {
             if (movimento.equals("N"))
                 break;
         }
-        if (conta.limiteEstudantil != 5000) {
+        if (this.limiteEstudantil != 5000) {
             System.out.println("É necessário repor seu limite, deseja depositar?");
             System.out.println("S / N");
             movimento = sc.nextLine();
@@ -75,9 +75,8 @@ public class ContaEstudantil extends Conta {
             } else {
                 System.out.println("Qual o valor do movimento?");
                 valor = sc.nextDouble();
-                conta.limiteEstudantil += valor;
+                this.limiteEstudantil += valor;
             }
         }
-        sc.close();
     }
 }
